@@ -13,12 +13,12 @@ import java.util.List;
 @RequestMapping("/sample")
 public class ProductController {
 
-//    @Autowired
-//    private ProductService productService;
+    @Autowired
+    private ProductService productService;
 
-//    @GetMapping("/products")
-//    public List<Product> getProducts() {
-//        return productService.getProducts();
-//    }
+    @GetMapping("/products")
+    public List<Product> getProducts() {
+        return productService.getProducts();
+    }
 
 }
