@@ -20,5 +20,9 @@ public class ProductController {
     public List<Product> getProducts() {
         return productService.getProducts();
     }
+    @GetMapping("/product/id")
+    public Product getProductById(int productId) {
+        return productService.getProductById(productId);
+    }
 
 }

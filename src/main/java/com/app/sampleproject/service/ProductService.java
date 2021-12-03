@@ -8,4 +8,6 @@ public interface ProductService {
 
     List<Product> getProducts();
 
+    Product getProductById(int productId);
+
 }
