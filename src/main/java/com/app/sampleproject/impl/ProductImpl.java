@@ -20,7 +20,67 @@ public class ProductImpl implements ProductService {
     }
 
     @Override
-    public Product getProductById(int productId) {
-        return productrepository.findProductId(productId);
+    public Product getProductById(int productid) {
+        return productrepository.findProductId(productid);
     }
+
+    @Override
+    public Product addProduct( Product product) {
+        return productrepository.save(product);
+    }
+
+    @Override
+    public String updateProduct(int productid, Product productDetails) {
+        Product product = productrepository.findProductId(productid);
+        product.setProductid(productid);
+        if (productDetails.getProductname() != null) {
+            product.setProductname(productDetails.getProductname());
+        } else {
+            product.setProductname(product.getProductname());
+        }
+
+        if (productDetails.getProductcode() != null) {
+            product.setProductcode(productDetails.getProductcode());
+        } else {
+            product.setProductcode(product.getProductcode());
+        }
+
+        if (productDetails.getPrice() != 0) {
+            product.setPrice(productDetails.getPrice());
+        } else {
+            product.setPrice(product.getPrice());
+        }
+
+        if (productDetails.getOffer() >= 0) {
+            product.setOffer(productDetails.getOffer());
+        } else {
+            product.setOffer(product.getOffer());
+        }
+
+        if (productDetails.getDescription() != null) {
+            product.setDescription(productDetails.getDescription());
+        } else {
+            product.setDescription(product.getDescription());
+        }
+        if (productDetails.getColor() != null) {
+            product.setColor(productDetails.getColor());
+        } else {
+            product.setColor(product.getColor());
+        }
+        if (productDetails.getDate() != null) {
+            product.setDate(productDetails.getDate());
+        } else {
+            product.setDate(product.getDate());
+        }
+         productrepository.save(product);
+        return "product updated";
+    }
+
+    @Override
+    public String deleteByProductId(int productid) {
+        productrepository.deleteById(productid);
+        return "deleted";
+    }
+
+
 }

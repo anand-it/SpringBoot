@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-    @Query("from Product where productid=:productId")
-    Product findProductId(int productId);
+    @Query("from Product where productid=:productid")
+    Product findProductId(int productid);
 }
