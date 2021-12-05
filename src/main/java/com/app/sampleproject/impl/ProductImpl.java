@@ -33,6 +33,7 @@ public class ProductImpl implements ProductService {
     public String updateProduct(int productid, Product productDetails) {
         Product product = productrepository.findProductId(productid);
         product.setProductid(productid);
+
         if (productDetails.getProductname() != null) {
             product.setProductname(productDetails.getProductname());
         } else {
@@ -62,11 +63,13 @@ public class ProductImpl implements ProductService {
         } else {
             product.setDescription(product.getDescription());
         }
+
         if (productDetails.getColor() != null) {
             product.setColor(productDetails.getColor());
         } else {
             product.setColor(product.getColor());
         }
+
         if (productDetails.getDate() != null) {
             product.setDate(productDetails.getDate());
         } else {
