@@ -16,6 +16,9 @@ public class Product {
     private String color;
     private String date;
 
+    public Product(){
+
+    }
     public int getProductid() {
         return productid;
     }

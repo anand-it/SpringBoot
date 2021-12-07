@@ -1,6 +1,8 @@
 package com.app.sampleproject.impl;
 
+import com.app.sampleproject.entity.Category;
 import com.app.sampleproject.entity.Product;
+import com.app.sampleproject.repository.CategoryRepository;
 import com.app.sampleproject.repository.ProductRepository;
 import com.app.sampleproject.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,9 @@ public class ProductImpl implements ProductService {
     @Autowired
     private ProductRepository productrepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @Override
     public List<Product> getProducts() {
         return productrepository.findAll();
@@ -21,7 +26,7 @@ public class ProductImpl implements ProductService {
 
     @Override
     public Product getProductById(int productid) {
-        return productrepository.findProductId(productid);
+        return productrepository.findByProductid(productid);
     }
 
     @Override
@@ -30,9 +35,9 @@ public class ProductImpl implements ProductService {
     }
 
     @Override
-    public String updateProduct(int productid, Product productDetails) {
-        Product product = productrepository.findProductId(productid);
-        product.setProductid(productid);
+    public String updateProduct(Product productDetails) {
+        Product product = productrepository.findByProductid(productDetails.getProductid());
+        product.setProductid(product.getProductid());
 
         if (productDetails.getProductname() != null) {
             product.setProductname(productDetails.getProductname());
@@ -83,6 +88,11 @@ public class ProductImpl implements ProductService {
     public String deleteByProductId(int productid) {
         productrepository.deleteById(productid);
         return "deleted";
+    }
+
+    @Override
+    public List<Category> getAllCategory() {
+        return categoryRepository.findAll();
     }
 
 

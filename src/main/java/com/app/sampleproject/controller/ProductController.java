@@ -1,5 +1,6 @@
 package com.app.sampleproject.controller;
 
+import com.app.sampleproject.entity.Category;
 import com.app.sampleproject.entity.Product;
 import com.app.sampleproject.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,8 @@ public class ProductController {
     }
 
     @PutMapping("/updateproduct")
-    public String updateProduct(int productid, Product productDetails){
-       productService.updateProduct(productid,productDetails);
+    public String updateProduct(Product productDetails){
+       productService.updateProduct(productDetails);
         return "Product Update";
     }
 
@@ -40,4 +41,11 @@ public class ProductController {
         productService.deleteByProductId(productid);
         return "deleted";
     }
+
+    @GetMapping("/allcategory")
+    public List<Category> getAllCategory() {
+        return productService.getAllCategory();
+    }
+
+
 }

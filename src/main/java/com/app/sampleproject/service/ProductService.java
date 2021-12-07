@@ -1,5 +1,6 @@
 package com.app.sampleproject.service;
 
+import com.app.sampleproject.entity.Category;
 import com.app.sampleproject.entity.Product;
 
 import java.util.List;
@@ -12,8 +13,10 @@ public interface ProductService {
 
     Product addProduct(Product product);
 
-    String updateProduct(int productid,Product productDetails);
+    String updateProduct(Product productDetails);
 
      String deleteByProductId(int productid);
+
+    List<Category> getAllCategory();
 
 }
