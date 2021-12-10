@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name ="subcategory")
-@JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class,property = "subcategoryid")
+//@JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class,property = "subcategoryid")
 public class SubCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
