@@ -55,7 +55,7 @@ public class ProductImpl implements ProductService {
 
     @Override
     public Product getProductById(int productid) {
-        return productrepository.findByProductid(productid);
+        return productrepository.findById(productid).orElse(null);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class ProductImpl implements ProductService {
 
     @Override
     public String updateProduct(Product productDetails) {
-        Product product = productrepository.findByProductid(productDetails.getProductid());
+        Product product = productrepository.findById(productDetails.getProductid()).orElse(null);
         product.setProductid(product.getProductid());
 
         if (productDetails.getProductname() != null) {
@@ -110,7 +110,7 @@ public class ProductImpl implements ProductService {
             product.setDate(product.getDate());
         }
          productrepository.save(product);
-        return "product updated";
+        return "updated";
     }
 
     @Override

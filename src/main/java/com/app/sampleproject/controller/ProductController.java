@@ -35,7 +35,7 @@ public class ProductController {
     @PutMapping("/updateproduct")
     public String updateProduct(Product productDetails){
        productService.updateProduct(productDetails);
-        return "Product Update";
+        return "updated";
     }
 
     @DeleteMapping ("delete/product")
